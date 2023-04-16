@@ -23,7 +23,7 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-  	<link rel="stylesheet" href="css/component.css">
+  <link rel="stylesheet" href="css/component.css">
 	
     <link rel="stylesheet" href="css/owl.theme.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
@@ -275,9 +275,28 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
         </li>
       </ul>
 
+
+
+      
+
+
+
     </div>
   </div>
 </section>
+
+<script>
+  // Add a click event listener to each info-box
+const infoBoxes = document.querySelectorAll('.info-box');
+infoBoxes.forEach(infoBox => {
+  infoBox.addEventListener('click', () => {
+    infoBox.classList.toggle('selected');
+  });
+});
+</script>
+
+
+
 
 
 <!-- Contact section -->
