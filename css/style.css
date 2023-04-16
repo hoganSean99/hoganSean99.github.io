@@ -6,31 +6,6 @@ http://www.templatemo.com/tm-493-snapshot
 */
 
 
-.con {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-.info-box {
-  flex: 1;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.info-box h3 {
-  margin-top: 0;
-}
-
-.info-box p {
-  margin-bottom: 0;
-}
-
-
 /* Body 
 ------------------------------------- */
 body {
