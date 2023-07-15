@@ -33,6 +33,12 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 	<link rel="stylesheet" href="css/vegas.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
+   <!--=============== REMIXICONS ===============-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -67,7 +73,7 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
           <span class="icon icon-bar"></span>
         </button>
         <a href="#top" class="navbar-brand smoothScroll"
-          style="font-family:fantasy; font-size:15px; padding-top:6%;">Reiki at Hope Cottage</a>
+          style="font-family:'Lucida Handwriting', cursive; font: size 5px; padding-top:5%; padding-left: -5%">Reiki at Hope Cottage</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -233,62 +239,119 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 
   <!-- Gallery section -->
 
-  <section id="gallery">
+  <section id="gallery-main">
     <div class="container">
-      <div class="row">
+      
+        <div class="gallery">
+            <!-- =============== SWIPER GALLERY CARDS =============== -->
+            <div class="swiper gallery-cards">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/img1.png" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">Ornament Vase</h3>
+                                <span class="gallery__subtitle">Modern</span>
+                            </div>
+                        </article>
+                    </div>
 
-        <div class="col-md-offset-2 col-md-8 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="section-title">
-            <h1>Gallery</h1>
-            <p>Number of Images</p>
-          </div>
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/img2.png" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">Ornament Vase</h3>
+                                <span class="gallery__subtitle">Modern</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/img3.png" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">Ornament Vase</h3>
+                                <span class="gallery__subtitle">Modern</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/img4.png" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">Ornament Vase</h3>
+                                <span class="gallery__subtitle">Modern</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <article class="gallery__card">
+                            <img src="assets/img/img5.png" alt="image gallery" class="gallery__img">
+                            <div class="gallery__data">
+                                <h3 class="gallery__title">Ornament Vase</h3>
+                                <span class="gallery__subtitle">Modern</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =============== SWIPER GALLERY THUMBNAIL =============== -->
+            <div class="gallery__overflow">
+                <div class="swiper gallery-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/img1.png" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/img2.png" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/img3.png" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+    
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/img4.png" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="gallery__thumbnail">
+                                <img src="assets/img/img5.png" alt="image thumbnail" class="gallery__thumbnail-img">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Swiper pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Swiper arrows -->
+                <div class="swiper-button-next">
+                    <i class="ri-arrow-right-line"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="ri-arrow-left-line"></i>
+                </div>
+            </div>
         </div>
+        
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
 
-        <ul class="grid cs-style-4">
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery1.jpg" alt="image 1"></div>
-              <figcaption>
-                <h1>Image 1</h1>
-                <small>Info</small>
-                <a href="#">Read More</a>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery2.jpg" alt="image 2"></div>
-              <figcaption>
-                <h1>Image 2</h1>
-                <small>Info.</small>
-                <a href="#">Details</a>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery3.jpg" alt="image 3"></div>
-              <figcaption>
-                <h1>Image 3</h1>
-                <small>Info</small>
-                <a href="#">Learn More</a>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Tree1.jpg" alt="image 4"></div>
-              <figcaption>
-                <h1>Image 4</h1>
-                <small>Info</small>
-                <a href="#">Full Post</a>
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
 
 
 
