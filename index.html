@@ -32,6 +32,14 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/vegas.min.css">
 	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.scss">
+
+
+            <!--=============== REMIXICONS ===============-->
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+            <!--=============== SWIPER CSS ===============-->
+            <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
@@ -91,10 +99,19 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 
         <div class="col-md-offset-1 col-md-10 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
           <h1 class="wow fadeInUp" data-wow-delay="0.6s">Welcome to Reiki at Hope Cottage</h1>
-          <p class="wow fadeInUp" data-wow-delay="0.9s">Some More text about The Reiki Room <a rel="nofollow"
-              href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=">Here</a></p>
-          <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y="
-            class="smoothScroll btn btn-success btn-lg wow fadeInUp" data-wow-delay="1.2s">Instagram</a>
+          <!-- <p class="wow fadeInUp" data-wow-delay="0.9s">Some More text about The Reiki Room <a rel="nofollow" -->
+              <!-- href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=">Here</a></p> -->
+              <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+        
+                  <ul class="social-icon">
+                    <li><a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/"
+                        class="fa fa-facebook wow fadeInUp" data-wow-delay="0.2s"></a></li>
+                    <li><a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y="
+                        class="fa fa-instagram wow fadeInUp" data-wow-delay="0.2s"></a></li>
+                  </ul>
+                  </div>
         </div>
 
       </div>
@@ -233,85 +250,62 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
 
   <!-- Gallery section -->
 
+
+
+
   <section id="gallery-main">
-    <div class="container">
-      <div class="row">
 
-        <div class="col-md-offset-2 col-md-8 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="section-title">
-            <h1>Gallery</h1>
-            <p>Number of Images</p>
-          </div>
+      
+      <script src="D:/splide-4.1.3/dist/js/splide.min.js"></script>
+      <link rel="stylesheet" href="D:/splide-4.1.3/dist/css/splide.min.css">
+
+      
+
+
+      <section class="splide" aria-label="...">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide"><img src="images/HomePageBanner1BW.jpg" alt=""></li>
+            <li class="splide__slide"><img src="images/HomePageBanner2BW.jpg" alt=""></li>
+            <li class="splide__slide"><img src="images/HomePageBanner3BW.jpg" alt=""></li>
+            <li class="splide__slide"><img src="images/Tree1BW.jpg" alt=""></li>
+            <li class="splide__slide"><img src="images/Buddah1BW.jpg" alt=""></li>
+            <li class="splide__slide"><img src="images/StackStones1BW.jpg" alt=""></li>
+          </ul>
         </div>
+      
+        <!-- Add the progress bar element -->
+        <div class="my-carousel-progress">
+          <div class="my-carousel-progress-bar"></div>
+        </div>
+      </section>
 
-        <ul class="grid cs-style-4">
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery1.jpg" alt="image 1"></div>
-              <figcaption>
-                <h1>Image 1</h1>
-                <small>Info</small>
-                <a href="#">Read More</a>
-              </figcaption>
-            </figure>
-          </li>
+      <script>
+        var splide = new Splide( '.splide', { 
+  type  : 'fade',
+  perPage: 1,
+  gap: 0,
+  padding: 0,
+  rewind: true,
+  width : '100vw',
+  height: 850,
+  cover: true,
+  autoplay: true,
+  interval: 3000
+} ).mount();
+        var bar = splide.root.querySelector( '.my-carousel-progress-bar' );
 
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery2.jpg" alt="image 2"></div>
-              <figcaption>
-                <h1>Image 2</h1>
-                <small>Info.</small>
-                <a href="#">Details</a>
-              </figcaption>
-            </figure>
-          </li>
+// Updates the bar width whenever the carousel moves:
+splide.on( 'mounted move', function () {
+  var end  = splide.Components.Controller.getEnd() + 1;
+  var rate = Math.min( ( splide.index + 1 ) / end, 1 );
+  bar.style.width = String( 100 * rate ) + '%';
+} );
 
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Gallery3.jpg" alt="image 3"></div>
-              <figcaption>
-                <h1>Image 3</h1>
-                <small>Info</small>
-                <a href="#">Learn More</a>
-              </figcaption>
-            </figure>
-          </li>
+splide.mount();
+      </script>
 
-          <li class="col-md-6 col-sm-6">
-            <figure>
-              <div><img src="images/Tree1.jpg" alt="image 4"></div>
-              <figcaption>
-                <h1>Image 4</h1>
-                <small>Info</small>
-                <a href="#">Full Post</a>
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
-
-
-
-
-
-
-
-      </div>
-    </div>
   </section>
-
-  <script>
-    // Add a click event listener to each info-box
-    const infoBoxes = document.querySelectorAll('.info-box');
-    infoBoxes.forEach(infoBox => {
-      infoBox.addEventListener('click', () => {
-        infoBox.classList.toggle('selected');
-      });
-    });
-  </script>
-
-
-
 
 
   <!-- Contact section -->

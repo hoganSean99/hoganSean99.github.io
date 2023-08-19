@@ -6,7 +6,28 @@ http://www.templatemo.com/tm-493-snapshot
 */
 
 
+/*TESTING*/
+/*#################################################################################*/
 
+
+
+.my-carousel-progress {
+  background: #ccc;
+}
+
+.my-carousel-progress-bar {
+  background: rgb(77, 121, 11);
+  height: 2px;
+  transition: width 400ms ease;
+  width: 0;
+}
+
+.splide__slide img {
+  height: auto;
+}
+
+
+/*#################################################################################*/
 
 /* Body 
 ------------------------------------- */
@@ -204,7 +225,7 @@ a:hover, a:active, a:focus {
 
 .lb-outerContainer {
   position: relative;
-  *zoom: 1;
+  zoom: 1;
   width: 250px;
   height: 250px;
   margin: 0 auto;
@@ -302,7 +323,7 @@ a:hover, a:active, a:focus {
 .lb-dataContainer {
   margin: 0 auto;
   padding-top: 5px;
-  *zoom: 1;
+  zoom: 1;
   width: 100%;
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -424,6 +445,7 @@ a:hover, a:active, a:focus {
     Main Navigation             
 -----------------------------------------*/
 
+/*Whole Nav Bar*/
 .navbar-default {
   background: #ffffff;
   box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.04);
@@ -431,14 +453,15 @@ a:hover, a:active, a:focus {
   margin-bottom: 0px !important;
 }
 
+/*Reiki at Hope Cottage - Nav Bar*/
 .navbar-default .navbar-brand {
   color: #0b4812;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
-  letter-spacing: 2px;
-  margin: 0;
+  letter-spacing: 1px;
 }
 
+/*No Active Links*/
 .navbar-default .navbar-nav li a {
     color: #777;
     font-size: 14px;
@@ -451,6 +474,7 @@ a:hover, a:active, a:focus {
     padding-left: 22px;
 }
 
+/*Each Link*/
 .navbar-default .navbar-nav li a span {
   position: relative;
   display: block;
@@ -504,11 +528,14 @@ a:hover, a:active, a:focus {
     background-color: transparent;
 }
 
+/*Active Link Nav*/
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: #304352;
     background-color: transparent;
+
+    border-color: white;
 }
 
 .navbar-default .navbar-toggle {
