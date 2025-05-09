@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Reiki at Hope Cottage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .coming-soon-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(44, 54, 57, 0.7), rgba(44, 54, 57, 0.7)),
+                url('./images/landing_background_image.jpg') center/cover fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(44,54,57,0.10);
+            border: 1.5px solid #A27B5C;
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem 2rem;
+            text-align: center;
+            z-index: 2;
+        }
+        .coming-soon-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.5rem;
+            color: #2C3639;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+        .coming-soon-logo {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2rem;
+            color: #A27B5C;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .coming-soon-message {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.2rem;
+            color: #3F4E4F;
+            margin-bottom: 2rem;
+        }
+        .coming-soon-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .coming-soon-social a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #A27B5C;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(44,54,57,0.08);
+            transition: background 0.3s, color 0.3s;
+        }
+        .coming-soon-social a:hover {
+            background: #A27B5C;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .coming-soon-card {
+                padding: 2rem 1rem;
+                max-width: 95vw;
+            }
+            .coming-soon-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coming-soon-hero">
+        <div class="coming-soon-card">
+            <span class="coming-soon-logo">希望のコテージ</span>
+            <div class="coming-soon-title">Reiki at Hope Cottage</div>
+            <div class="coming-soon-message">
+                Our new website is coming soon.<br>
+                Please check back for updates and follow us on social media!
+            </div>
+            <div class="coming-soon-social">
+                <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
