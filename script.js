@@ -18,11 +18,26 @@ document.querySelectorAll('section').forEach(section => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // If mobile nav is open, close it first
+            if (navMenu.classList.contains('active')) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                document.body.classList.remove('menu-open');
+            }
+            
+            // Offset scroll for fixed header
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
@@ -217,4 +232,88 @@ style.textContent = `
     }
 `;
 
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all necessary elements
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('header');
+
+    // Function to close mobile menu
+    function closeMobileMenu() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+    }
+
+    // Toggle mobile menu
+    navToggle.addEventListener('click', function() {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', navMenu.classList.contains('active'));
+    });
+
+    // Handle navigation clicks
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the target section
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                // Close mobile menu
+                closeMobileMenu();
+                
+                // Calculate scroll position
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                // Scroll to target
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    // Handle scroll events for header
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        // Add scrolled class when scrolling down
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        // Handle header show/hide on scroll
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            header.classList.add('scroll-down');
+            header.classList.remove('scroll-up');
+        } else {
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}); 
