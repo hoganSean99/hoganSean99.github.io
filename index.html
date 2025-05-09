@@ -3,264 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reiki at Hope Cottage - Healing Energy Therapy</title>
+    <title>Coming Soon - Reiki at Hope Cottage</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .coming-soon-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(44, 54, 57, 0.7), rgba(44, 54, 57, 0.7)),
+                url('./images/landing_background_image.jpg') center/cover fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(44,54,57,0.10);
+            border: 1.5px solid #A27B5C;
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem 2rem;
+            text-align: center;
+            z-index: 2;
+        }
+        .coming-soon-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.5rem;
+            color: #2C3639;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+        .coming-soon-logo {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2rem;
+            color: #A27B5C;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .coming-soon-message {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.2rem;
+            color: #3F4E4F;
+            margin-bottom: 2rem;
+        }
+        .coming-soon-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .coming-soon-social a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #A27B5C;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(44,54,57,0.08);
+            transition: background 0.3s, color 0.3s;
+        }
+        .coming-soon-social a:hover {
+            background: #A27B5C;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .coming-soon-card {
+                padding: 2rem 1rem;
+                max-width: 95vw;
+            }
+            .coming-soon-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand">
-                <a href="#home" class="logo">Reiki at Hope Cottage</a>
+    <div class="coming-soon-hero">
+        <div class="coming-soon-card">
+            <span class="coming-soon-logo">希望のコテージ</span>
+            <div class="coming-soon-title">Reiki at Hope Cottage</div>
+            <div class="coming-soon-message">
+                Our new website is coming soon.<br>
+                Please check back for updates and follow us on social media!
             </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <div class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#what-is-reiki" class="nav-link">What is Reiki</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+            <div class="coming-soon-social">
+                <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="brand-name">
-                        <h1 class="reveal-text">
-                            <span class="line">Reiki at</span>
-                            <span class="line">Hope Cottage</span>
-                        </h1>
-                        <span class="japanese-text">希望のコテージ</span>
-                    </div>
-                    <p class="hero-description">Experience the gentle flow of universal life force energy in a serene space designed for your complete relaxation and renewal.</p>
-                    <div class="hero-cta">
-                        <a href="#what-is-reiki" class="cta-button">
-                            <span>Begin Your Journey</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="floating-elements">
-                        <div class="floating-element element-1"></div>
-                        <div class="floating-element element-2"></div>
-                        <div class="floating-element element-3"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="what-is-reiki" class="what-is-reiki">
-            <div class="section-content">
-                <h2 class="section-title">What is Reiki?</h2>
-                <div class="what-is-reiki-grid">
-                    <div class="what-is-reiki-text">
-                        <div class="text-block">
-                            <h3>The Art of Energy Healing</h3>
-                            <p>Reiki (霊気) is a gentle yet powerful form of energy healing that originated in Japan. The word combines "rei" (universal) and "ki" (life force energy), representing the universal life force energy that flows through all living things.</p>
-                        </div>
-                        <div class="text-block">
-                            <h3>The Reiki Experience</h3>
-                            <p>During a Reiki session, the practitioner serves as a channel for universal life force energy, allowing it to flow through their hands to the recipient. This energy works intelligently, flowing to where it's needed most in your body and energy field.</p>
-                        </div>
-                        <div class="benefits-grid">
-                            <div class="benefit-item">
-                                <i class="fas fa-spa"></i>
-                                <span>Stress Relief</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Emotional Balance</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-brain"></i>
-                                <span>Mental Clarity</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-leaf"></i>
-                                <span>Relaxation</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="what-is-reiki-image">
-                        <div class="image-container">
-                            <div class="image-overlay"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="section-content">
-                <h2 class="section-title">Our Practice</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p class="lead-text">At Reiki at Hope Cottage, we create a sacred space where healing and transformation can occur.</p>
-                        <p>Our practice combines traditional Reiki healing with the calming presence of nature, offering a holistic approach to wellness and balance. Each session is a unique journey, tailored to your individual needs and guided by the universal life force energy.</p>
-                        <div class="practice-values">
-                            <div class="value-item">
-                                <span class="value-number">01</span>
-                                <h4>Mindfulness</h4>
-                                <p>Present moment awareness in every session</p>
-                            </div>
-                            <div class="value-item">
-                                <span class="value-number">02</span>
-                                <h4>Harmony</h4>
-                                <p>Balancing body, mind, and spirit</p>
-                            </div>
-                            <div class="value-item">
-                                <span class="value-number">03</span>
-                                <h4>Relaxation</h4>
-                                <p>Supporting your inner peace</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="section-content">
-                <h2 class="section-title">Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <h3>Full Reiki Session</h3>
-                        <p>A comprehensive 60-minute energy healing session in our peaceful nature setting. Perfect for deep healing and relaxation.</p>
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>60 minutes</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-leaf"></i>
-                                <span>Nature Setting</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-star"></i>
-                                <span>Deep Healing</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-compress-arrows-alt"></i>
-                        </div>
-                        <h3>Mini Reiki Session</h3>
-                        <p>A focused 30-minute energy healing session for quick balance and renewal. Ideal for regular maintenance.</p>
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>30 minutes</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Quick Balance</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Regular Care</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <h3>Distance Reiki</h3>
-                        <p>A 60-minute remote energy healing session from the comfort of your home. Energy knows no boundaries.</p>
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>60 minutes</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-home"></i>
-                                <span>Remote Session</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-wifi"></i>
-                                <span>Energy Connection</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="section-content">
-                <h2 class="section-title">Contact Me</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="info-block">
-                            <h3>Location</h3>
-                            <p>Hope Cottage<br>Tarbert<br>Co. Kerry</p>
-                        </div>
-                        <div class="info-block">
-                            <h3>Contact</h3>
-                            <p>Phone: .....<br>Email: reikiathopecottage@gmail.com</p>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        </div>
-                    </div>
-                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkgrzbbj" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <span class="footer-logo">希望のコテージ</span>
-                <span class="footer-subtitle">Reiki at Hope Cottage</span>
-            </div>
-            <p class="copyright">&copy; 2024 Reiki at Hope Cottage. All rights reserved.</p>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
+    </div>
 </body>
 </html> 
