@@ -178,30 +178,45 @@ cards.forEach(card => {
 // Form validation and animation
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        // Add loading state
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        // Simulate form submission
-        setTimeout(() => {
-            submitButton.textContent = 'Message Sent!';
-            submitButton.style.backgroundColor = 'var(--primary-color)';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Reset button after delay
-            setTimeout(() => {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-                submitButton.style.backgroundColor = '';
-            }, 3000);
-        }, 1500);
+
+        const formData = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                contactForm.innerHTML = `
+                  <div style="
+                    background: rgba(162, 123, 92, 0.12);
+                    color: #A27B5C;
+                    border: 1px solid #A27B5C;
+                    border-radius: 8px;
+                    padding: 2rem 1rem;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    font-family: 'Noto Serif JP', serif;
+                    box-shadow: 0 2px 8px rgba(44,54,57,0.05);
+                    margin-top: 1rem;
+                  ">
+                    <i class="fas fa-leaf" style="font-size:2rem; margin-bottom:0.5rem; display:block;"></i>
+                    Thank you for your message!<br>
+                    We'll be in touch soon.
+                  </div>
+                `;
+            } else {
+                contactForm.innerHTML = "<p style='color:red; font-size:1.2rem;'>Oops! There was a problem submitting your form. Please try again later.</p>";
+            }
+        })
+        .catch(error => {
+            contactForm.innerHTML = "<p style='color:red; font-size:1.2rem;'>Oops! There was a problem submitting your form. Please try again later.</p>";
+        });
     });
 }
 

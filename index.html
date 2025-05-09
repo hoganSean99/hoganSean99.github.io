@@ -213,7 +213,7 @@
 
         <section id="contact" class="contact">
             <div class="section-content">
-                <h2 class="section-title">Connect With Us</h2>
+                <h2 class="section-title">Contact Me</h2>
                 <div class="contact-grid">
                     <div class="contact-info">
                         <div class="info-block">
@@ -225,23 +225,22 @@
                             <p>Phone: .....<br>Email: reikiathopecottage@gmail.com</p>
                         </div>
                         <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/reikiathopecottage?igshid=YmMyMTA2M2Y=" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/Reiki-at-Hope-Cottage-100548095583698/" class="social-link"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>
-                    <form id="contact-form" class="contact-form">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkgrzbbj" method="POST">
                         <div class="form-group">
-                            <input type="text" id="name" required>
                             <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" required>
                             <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" required></textarea>
                             <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="submit-button">
                             <span>Send Message</span>
