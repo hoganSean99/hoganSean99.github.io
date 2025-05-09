@@ -784,8 +784,22 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .service-details {
-        grid-template-columns: repeat(2, 1fr);
+    /* Add spacing for mobile view */
+    .hero {
+        padding-top: 10rem;
+    }
+
+    section {
+        padding-top: 10rem;
+    }
+
+    .navbar {
+        padding: 1.2rem 5%;
+    }
+
+    .nav-brand {
+        transform: scale(0.9);
+        transform-origin: left;
     }
 }
 
@@ -812,6 +826,23 @@ footer {
     
     .service-card {
         padding: 2rem 1.5rem;
+    }
+
+    /* Additional mobile adjustments */
+    .hero {
+        padding-top: 8rem;
+    }
+
+    section {
+        padding-top: 8rem;
+    }
+
+    .navbar {
+        padding: 1rem 5%;
+    }
+
+    .nav-brand {
+        transform: scale(0.85);
     }
 }
 
