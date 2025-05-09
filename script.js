@@ -14,6 +14,44 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
+// Get DOM elements
+const header = document.querySelector('header');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+let lastScroll = 0;
+
+// Mobile menu functionality
+function closeMobileMenu() {
+    navToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
+}
+
+navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    document.body.classList.toggle('menu-open');
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !e.target.closest('.nav-menu') && 
+        !e.target.closest('.nav-toggle')) {
+        closeMobileMenu();
+    }
+});
+
+// Close mobile menu when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        closeMobileMenu();
+    });
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -22,17 +60,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(targetId);
         
         if (target) {
-            // If mobile nav is open, close it first
-            if (navMenu.classList.contains('active')) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-                document.body.classList.remove('menu-open');
-            }
-            
-            // Offset scroll for fixed header
-            const header = document.querySelector('header');
-            const headerHeight = header ? header.offsetHeight : 0;
+            const headerHeight = header.offsetHeight;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
             
             window.scrollTo({
@@ -44,9 +72,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Header scroll effect
-const header = document.querySelector('header');
-let lastScroll = 0;
-
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
