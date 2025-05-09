@@ -29,7 +29,9 @@ function closeMobileMenu() {
     document.body.classList.remove('menu-open');
 }
 
-navToggle.addEventListener('click', () => {
+// Mobile menu toggle
+navToggle.addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevent event from bubbling up
     navToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
@@ -47,8 +49,22 @@ document.addEventListener('click', (e) => {
 
 // Close mobile menu when clicking a link
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', function(e) {
         closeMobileMenu();
+        // Smooth scroll
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const headerHeight = header.offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
     });
 });
 
@@ -106,8 +122,8 @@ const heroContent = document.querySelector('.hero-content');
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     if (hero.getBoundingClientRect().bottom > 0) {
-        heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
-        heroContent.style.opacity = 1 - (scrolled * 0.003);
+        heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
+        heroContent.style.opacity = 1 - (scrolled * 0.001);
     }
 });
 
@@ -216,7 +232,7 @@ style.textContent = `
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
-        transition: width 0.3s, height 0.3s;
+        transition: width 0.4s, height 0.3s;
     }
     
     .fade-out {
@@ -234,7 +250,43 @@ style.textContent = `
         display: inline-block;
         opacity: 0;
         transform: translateY(20px);
-        animation: fadeInUp 0.5s ease forwards;
+        animation: fadeInUp 0.3s ease forwards;
+    }
+    
+    .hero-content h1 span:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .hero-content h1 span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .japanese-text {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.3s ease forwards;
+        animation-delay: 0.25s;
+    }
+    
+    .hero-description {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.3s ease forwards;
+        animation-delay: 0.3s;
+    }
+    
+    .hero-cta {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.3s ease forwards;
+        animation-delay: 0.4s;
+    }
+    
+    .social-links {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.3s ease forwards;
+        animation-delay: 0.5s;
     }
     
     @keyframes fadeInUp {
@@ -257,48 +309,4 @@ style.textContent = `
     }
 `;
 
-document.head.appendChild(style);
-
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    let lastScroll = 0;
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
-    });
-
-    // Mobile menu toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
-
-    // Close mobile menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-}); 
+document.head.appendChild(style); 
