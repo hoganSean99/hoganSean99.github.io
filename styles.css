@@ -1203,6 +1203,11 @@ footer {
         height: 45px;
         font-size: 1.3rem;
     }
+
+    .rahanni-content {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
 }
 
 /* Add a subtle gradient animation to the background */
