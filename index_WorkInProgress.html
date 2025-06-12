@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div id="protected-content" style="display:none;">
     <header>
         <nav class="navbar">
             <div class="nav-brand">
@@ -399,6 +400,16 @@
                 closeBlogModal();
             }
         });
+    </script>
+    </div>
+    <script>
+      var password = "HopeCottage2025";
+      var userInput = prompt("Enter the password to access this site:");
+      if (userInput === password) {
+        document.getElementById('protected-content').style.display = 'block';
+      } else {
+        window.location.href = 'index.html';
+      }
     </script>
 </body>
 </html> 
