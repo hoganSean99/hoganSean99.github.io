@@ -119,11 +119,22 @@ window.addEventListener('scroll', () => {
 const hero = document.querySelector('.hero');
 const heroContent = document.querySelector('.hero-content');
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
+let lastScrollY = 0;
+let ticking = false;
+
+function updateHeroParallax() {
     if (hero.getBoundingClientRect().bottom > 0) {
-        heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
-        heroContent.style.opacity = 1 - (scrolled * 0.001);
+        heroContent.style.transform = `translateY(${lastScrollY * 0.08}px)`;
+        heroContent.style.opacity = 1 - (lastScrollY * 0.001);
+    }
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    lastScrollY = window.pageYOffset;
+    if (!ticking) {
+        window.requestAnimationFrame(updateHeroParallax);
+        ticking = true;
     }
 });
 
@@ -193,21 +204,10 @@ if (contactForm) {
         .then(response => {
             if (response.ok) {
                 contactForm.innerHTML = `
-                  <div style="
-                    background: rgba(162, 123, 92, 0.12);
-                    color: #A27B5C;
-                    border: 1px solid #A27B5C;
-                    border-radius: 8px;
-                    padding: 2rem 1rem;
-                    text-align: center;
-                    font-size: 1.2rem;
-                    font-family: 'Noto Serif JP', serif;
-                    box-shadow: 0 2px 8px rgba(44,54,57,0.05);
-                    margin-top: 1rem;
-                  ">
-                    <i class="fas fa-leaf" style="font-size:2rem; margin-bottom:0.5rem; display:block;"></i>
-                    Thank you for your message!<br>
-                    We'll be in touch soon.
+                  <div class="contact-thankyou">
+                    <div class="thankyou-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="thankyou-title">Thank you for your message!</div>
+                    <div class="thankyou-text">We'll be in touch soon.</div>
                   </div>
                 `;
             } else {
@@ -324,4 +324,74 @@ style.textContent = `
     }
 `;
 
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('modal');
+    const modalClose = document.querySelector('.modal-close');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    // Blog content data
+    const blogContent = {
+        'note-from-me': {
+            title: 'A Note from Me',
+            date: '12th June 2025',
+            content: `
+                <h2>A Note from Me</h2>
+                <p>Nobody talks about the weird stage of life where you know you're not yourself, but your not sure what you need to feel like yourself again.</p>
+                <p>It's a strange in-betweenspace where everythingfeels unsettled. You might be searchingfro something, but you doo't know what yet?</p>
+                <p>Sometimes we try to hold onto old habbits, relationships or routines, hoping they'll ground you but they just don't fit anymore. It can be frustrating, 
+                disorientating and often lonely. But in that uncertainty, there is also "Hope" and a quiet transformation happening, a chance to slow down, practise gradtitude, listen, 
+                to your inner beautiful voice, discover what truly nourishes the person you are becoming.</p>
+                <p>Reiki and Rahanni could maybe help you to prioriyize yourself, build a life that makes you happy and content</p>
+                <p>Believe in yourself, it truly is never too late and you are never too old.</p>
+                <p>Maybe whom ever reads this we might meet one day...</p>
+                <p>Until then, <br> 'Namaste'<br>Ann Canty</p>
+
+            `
+        }
+        // Add more blog content here as needed
+    };
+
+    // Open modal
+    function openModal(modalId) {
+        const content = blogContent[modalId];
+        if (content) {
+            const modalBody = modal.querySelector('.modal-body');
+            modalBody.innerHTML = content.content;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+    }
+
+    // Close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore background scrolling
+    }
+
+    // Event listeners
+    blogCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal');
+            openModal(modalId);
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}); 
